@@ -1,0 +1,22 @@
+{
+  "name": "vuejslearning",
+  "version": "1.0.0",
+  "description": "vue demo",
+  "main": "index.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ephraimguo/vuejslearning.git"
+  },
+  "author": "Ephraim Guo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ephraimguo/vuejslearning/issues"
+  },
+  "homepage": "https://github.com/ephraimguo/vuejslearning#readme"
+}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>V-MODEL</title>
+  <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+<h1>V-MODEL</h1>
+<hr>
+<div id="v-model-demo">
+  <h2>v-model：{{message}}</h2>
+  <h2>v-model.lazy：{{lazy}}</h2>
+  <h2>v-model.number：{{num}}</h2>
+  <h2>v-model.trim：{{trims}}</h2>
+  <h2>textarea：{{message}}</h2>
+  <hr>
+  <h1>2way data binding demo!!</h1>
+  <hr>
+  <p>v-model：
+    <input type="text" v-model="message">
+  </p>
+  <p>v-model.lazy
+    <input type="text" v-model.lazy="lazy">
+  </p>
+  <p>v-model.number：
+    <input type="text" v-model.number="num">
+  </p>
+  <p>v-model.trim：
+    <input type="text" v-model.trim="trims">
+  </p>
+  <hr>
+  <p>Text Area</p>
+  <textarea name="" id="" cols="60" rows="10" v-model="message"></textarea>
+  <hr>
+  <!--checkbox binding with 1 value-->
+  <p>Check box binding with 1 value</p>
+  <p>
+    <input type="checkbox" id="isTrue" v-model="isTrue">
+    <label for="isTrue">{{isTrue}}</label>
+  </p>
+  <hr>
+  <!--checkbox binding with an array-->
+  <p>checkbox binding with an array</p>
+  <p>
+    <input type="checkbox" id="yanyu" value="yanyu" v-model="web_names">
+    <label for="yanyu">yanyu</label>
+
+    <input type="checkbox" id="guo" value="guo" v-model="web_names">
+    <label for="guo">guo</label>
+
+    <input type="checkbox" id="ephraim" value="ephraim" v-model="web_names">
+    <label for="ephraim">ephraim</label>
+    <p>{{web_names}}</p>
+  <hr>
+  <!--radio binding with single data-->
+  <p>radio binding with single data</p>
+  <p>
+    <input type="radio"  id="male" value="Male" v-model="gender">
+    <label for="male" >Male</label>
+    <input type="radio"  id="female" value="Female" v-model="gender">
+    <label for="female" >Female</label>
+    <p>The gender u chose is {{gender}}</p>
+  </p>
+
+</div>
+
+<script>
+  var app = new Vue({
+    el:'#v-model-demo',
+    data: {
+      message: 'Hello V-model',
+      lazy: 'this is lazy loading',
+      num: 123,
+      trims: " 撒非是发发     地方    fd  sdf adf  f",
+      isTrue: false,
+      web_names: [],
+      gender: ""
+    }
+  });
+</script>
+</body>
+</html>

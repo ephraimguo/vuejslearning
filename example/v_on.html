@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>v-on 事件绑定+监听</title>
+  <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+<h1>V-ON</h1>
+<hr>
+<div id="v-on-event">
+  <h2>本场得分：{{points}}</h2>
+  <p>
+    <button v-on:click="addPoints">Add Points</button>
+    <button @click="deductPoints">Deduct Points</button>
+    <br>
+    <input type="text" v-on:keyup.enter="onEnter" v-model="points2">
+  </p>
+</div>
+
+<script>
+  var app = new Vue({
+    el:'#v-on-event',
+    data:{
+      points: 0,
+      points2: 1
+    },
+    methods:{
+      addPoints: function(){
+        return this.points++;
+      },
+      deductPoints: function (){
+        return this.points--;
+      },
+      onEnter: function(){
+        this.points = this.points + parseInt(this.points2);
+      }
+    }
+  });
+
+</script>
+</body>
+</html>
