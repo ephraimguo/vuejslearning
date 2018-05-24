@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>V-Bind</title>
+  <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+<h1>V-BIND</h1>
+<hr>
+<div class="v-bind-demo">
+  <p>
+    <img src="https://images.pexels.com/photos/21261/pexels-photo.jpg" width='500' alt="">
+    <img v-bind:src="imgSrc" width='500' alt="">
+    <hr>
+  </p>
+  <p>
+    <a :href="webUrl" target="_blank">Youtube</a>
+  </p>
+  <hr>
+  <h3>binding class attributes</h3>
+  <div :class="className">1. bind class</div>
+  <div :class="{classA:isOk}">2. decision of if binding the is class</div>
+  <div :class="[classA, classB]">3. decision of if binding the is class -- array</div>
+  <div :class="isOk?classA:classB">4. ternary operator of binding array</div>
+  <div :style="{color:red, fontSize:font}">5. binding style</div>
+  <div :style="styleObj">6. binding style with object</div>
+  <div>
+    <input type="checkbox" id="isOk"  v-model='isOk'>
+    <label for="isOk">isOk={{isOk}}</label>
+  </div>
+  <button v-on:click="fun1">testing</button>
+  <p>{{msg}}</p>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+</div>
+
+<style>
+  .classA{
+    background-color: #ccc;
+  }
+  .classB{
+    color: red;
+  }
+</style>
+
+<script>
+  var app = new Vue({
+    el: '.v-bind-demo',
+    data: {
+      msg: 'hello',
+      imgSrc:"https://images.pexels.com/photos/21261/pexels-photo.jpg",
+      webUrl: "https://www.youtube.com",
+      className: 'classA',
+      isOk:true,
+      classA: 'classA',
+      classB: 'classB',
+      red: 'red',
+      font: '20px',
+      styleObj: {
+        color: 'green',
+        backgroundColor: '#a4cdb1',
+        fontSize: '30px',
+      },
+
+
+    },
+    methods:{
+      fun1: function(){
+        return this.msg=this.msg==='fun1'?'hello':'fun1';
+      }
+    }
+  })
+</script>
+</body>
+</html>

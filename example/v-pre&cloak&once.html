@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" >
+  <title>V-PRE V-CLOAK V-ONCE</title>
+  <script type="text/javascript" src="../assets/js/vue.js"></script>
+
+</head>
+<body>
+<h1>V-PRE V-CLOAK V-ONCE</h1>
+<hr>
+<div class="rest-comm-demo">
+  <div>message is: {{message}}</div>
+  <div v-pre>message is: {{message}}</div>
+  <div v-cloak>ony show the content after the page rendered</div>
+  <div><input type="text" v-model="message"></div>
+  <div v-once>v-once, no more rendering on me, message is always {{message}}</div>
+  <div>no v-once, dynamically rendering {{message}}</div>
+</div>
+
+<script>
+  var app = new Vue({
+    el:".rest-comm-demo",
+    data:{
+      message: 'hello world'
+    }
+  });
+</script>
+</body>
+</html>
