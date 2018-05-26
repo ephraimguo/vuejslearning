@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vue Component 1</title>
+  <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+<h1>Vue Component 1</h1>
+<hr>
+<div class="app">
+  <yanyu></yanyu>
+  <guo></guo>
+</div>
+<script type="text/javascript">
+  Vue.component('yanyu',{
+    template:` <div style="color:#d92471">I am <i>yanyu</i> local component</div>
+    `
+  });
+
+  var app = new Vue({
+    el: '.app',
+    components: {
+      'guo':{
+        template: `<div v-pre style="color:#a8912a">I am global component and yanyu is the tag name</div>
+    `
+      }
+    }
+  });
+</script>
+</body>
+</html>

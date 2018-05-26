@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vue Directive</title>
+  <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+<h1>Vue Directive</h1>
+<hr>
+<div class="app">
+  <p v-yanyu="color">{{num}}</p>
+  <p><button @click="add">add</button></p>
+</div>
+<p>
+  <button onclick="unbind()">unbind</button>
+</p>
+<script type="text/javascript">
+  function unbind(){
+    app.$destroy();
+  }
+
+  Vue.directive('yanyu', {
+    // function(el, binding){
+    // console.log(el);
+    // console.log(binding);
+    // el.style="background-color:"+binding.value;}
+    bind: function (el, binding) {
+      console.log('1 - bind');
+      el.style="background-color:"+binding.value;
+    },
+    inserted: function(){
+      console.log('2 - inserted');
+    },
+    update: function(){
+      console.log('3 - update');
+    },
+    componentUpdated: function(){
+      console.log('4 - componentUpdated')
+    },
+    unbind: function(){
+      console.log('5 - unbind');
+    }
+  });
+
+  const app = new Vue({
+    el:'.app',
+    data:{
+      num: 10,
+      color: "#ca8732"
+    },
+    methods:{
+      add: function(){
+        this.num++;
+      }
+    }
+  });
+</script>
+</body>
+</html>

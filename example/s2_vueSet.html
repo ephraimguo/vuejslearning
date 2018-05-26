@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vue Set</title>
+  <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+<h1>Vue Set, Global Operation</h1>
+<hr>
+<div class="app">
+  {{count}}
+  <ul>
+    <li v-for="a in arr">{{a}}</li>
+  </ul>
+</div>
+<p><button onclick="add()" >add</button></p>
+
+
+<script type="text/javascript">
+  function add(){
+    // Vue.set(outData, 'count', 2);
+    // app.count++;
+    // outData.count++;
+    // app.arr[1] = 'ddd'
+    let d = app.arr[1]==='bbb'?'dddddddd':'bbb';
+    Vue.set(app.arr, 1, d);
+  }
+
+
+  var outData = {
+    count: 11,
+    // items: 'car'
+    arr: ['aaa','bbb','ccc']
+  };
+
+  var app = new Vue({
+    el: '.app',
+    data: outData
+  });
+</script>
+</body>
+</html>
