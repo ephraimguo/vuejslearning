@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vue Watch Option</title>
+  <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+<h1>Vue Watch Option</h1>
+<hr>
+<div id="app">
+  <p>Today Temp: {{temperature}} °</p>
+  <p>Attire Recom: {{attire}}</p>
+  <p><button @click="addTemp">Increase Temp</button>  <button @click="reduceTemp">Reduce Temp</button></p>
+</div>
+
+<script type="text/javascript">
+  var attArr = [
+    'Short and T-shirt',
+    'Jacket',
+    'Down Jacket'
+  ]
+  var app = new Vue({
+    el:'#app',
+    data:{
+      temperature: 14,
+      attire: 'Jacket'
+    },
+    methods:{
+      addTemp: function(){
+        this.temperature += 3;
+      },
+      reduceTemp: function(){
+        this.temperature -= 3;
+      }
+    }
+    // watch: {
+    //   temperature: function(newVal, oldVal){
+    //     if(newVal>=26){
+    //       this.attire = attArr[0];
+    //     }else if(newVal<26 && newVal>=15){
+    //       this.attire = attArr[1];
+    //     }else{
+    //       this.attire = attArr[2]
+    //     }
+    //   }
+    // }
+  });
+
+  app.$watch('temperature', function(newVal, oldVal){
+    if(newVal>=26){
+      this.attire = attArr[0];
+    }else if(newVal<26 && newVal>=15){
+      this.attire = attArr[1];
+    }else{
+      this.attire = attArr[2]
+    }
+  });
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vue Computed Option</title>
+  <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+<h1>Vue Computed Option</h1>
+<hr>
+<div id="app">
+  ${num}
+  <p><button v-on:click="add">Add 1</button></p>
+</div>
+
+
+<script type="text/javascript">
+  var extObj = {
+    updated: function(){
+      console.log('I am extended updated hooks')
+    }
+  };
+
+  var app = new Vue({
+    el:'#app',
+    data: {
+      num: 1
+    },
+    methods: {
+      add: function(){
+        console.log('I am native method');
+        return this.num++;
+      }
+    },
+    updated:function(){
+      console.log('I am native updated');
+    },
+    extends: extObj,
+    delimiters: ['${', '}']
+  });
+</script>
+</body>
+</html>

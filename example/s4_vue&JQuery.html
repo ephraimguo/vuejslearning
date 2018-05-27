@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vue & JQuery</title>
+  <script type="text/javascript" src="../assets/js/vue.js"></script>
+  <script type="text/javascript" src="../assets/js/jq.js"></script>
+</head>
+<body>
+<h1>Vue & JQuery</h1>
+<hr>
+<div id="app">
+{{message}}
+</div>
+
+
+<script type="text/javascript">
+  var app = new Vue({
+    el: '#app',
+    data: {
+      message: 'hello world'
+    },
+    mounted: function(){
+      $('#app').html('I am a JQ inserted content');
+    },
+    methods: {
+      add: function(){
+        console.log('*=*=*=*function inside constructor called*=*=*=*');
+      }
+    }
+  });
+
+  app.add();
+</script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>vue Instance Mount</title>
+  <script type="text/javascript" src="../assets/js/vue.js"></script>
+  <script type="text/javascript" src="../assets/js/jq.js"></script>
+</head>
+<body>
+<h1>vue Instance Mount</h1>
+<hr>
+<div id="app">
+  {{message}}
+</div>
+<p><button onclick="destroy()">destroy</button></p>
+<p><button onclick="reload()">reload</button></p>
+<p><button onclick="tick()">Change</button></p>
+
+
+<script type="text/javascript">
+  var yanyu = Vue.extend({
+    template: `<p>{{message}}</p>`,
+    data: function(){
+      return {
+        message: 'Hello, I am Yanyu'
+      }
+    },
+    mounted: function(){
+      console.log('mounted created +++____+++');
+    },
+    destroyed: function () {
+      console.log('hook destroyed called');
+    },
+    updated: function(){
+      console.log('force updated called');
+    }
+  });
+
+  var vm =  new yanyu().$mount('#app');
+  function destroy(){
+    vm.$destroy();
+  }
+  function reload(){
+    vm.$forceUpdate();
+    console.log('vm forceUpdated +++___+++');
+  }
+  function tick(){
+    vm.message = "update message info";
+    vm.$nextTick(function(){
+      console.log("message editted done, and I am called");
+    });
+  }
+
+</script>
+</body>
+</html>

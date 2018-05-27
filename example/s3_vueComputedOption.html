@@ -11,6 +11,9 @@
 <hr>
 <div id="app">
   {{newPrice}}
+  <ul>
+    <li v-for="item in newsList">{{item}}</li>
+  </ul>
 </div>
 
 <script type="text/javascript">
@@ -20,7 +23,7 @@
     {title: '是发包人那人家', date: new Date()},
     {title: '闪电发货添加一条可以', date: new Date()},
 
-  ]
+  ];
   var app = new Vue({
     el:'#app',
     data:{
@@ -30,6 +33,9 @@
     computed: {
       newPrice: function(){
         return this.price = '$' + this.price;
+      },
+      revContent: function (){
+        return this.newsList.reverse();
       }
     }
   })

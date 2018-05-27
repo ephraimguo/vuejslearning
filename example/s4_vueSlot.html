@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>vue Slot</title>
+  <script type="text/javascript" src="../assets/js/vue.js"></script>
+  <script type="text/javascript" src="../assets/js/jq.js"></script>
+</head>
+<body>
+<h1>vue Slot</h1>
+<hr>
+<div id="app">
+  <yanyu>
+    <span slot="blogUrl">{{yanyuData.blogUrl}}</span>
+    <span slot="netName">{{yanyuData.netName}}</span>
+    <span slot="skill">{{yanyuData.skill}}</span>
+  </yanyu>
+</div>
+
+<template id="tep">
+  <div>
+    <p>Addr: <slot name="blogUrl"></slot> </p>
+    <p>Name: <slot name="netName"></slot> </p>
+    <p>Skill: <slot name="skill"></slot> </p>
+  </div>
+
+</template>
+
+<script type="text/javascript">
+  var yanyu = {
+    template: "#tep"
+  };
+
+  var app = new Vue({
+    el: '#app',
+    data: {
+      yanyuData:{
+        blogUrl: 'http:www.youtube.com',
+        netName: 'YanyuYanyu',
+        skill: 'Web Tech'
+      }
+    },
+    components: {
+      "yanyu":yanyu
+    }
+  })
+
+</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vue Computed Option</title>
+  <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+<h1>Vue Computed Option</h1>
+<hr>
+<div id="app">
+    {{a}}
+  <br>
+  <p><button @click="add(2, $event)">Add Clicked</button></p>
+  <p><btt @click.native="add(2, $event)"></btt></p>
+</div>
+
+<div>
+  <button onclick="app.add(2)">call ADD outside the constructor</button>
+</div>
+
+<script type="text/javascript">
+  var bt = {
+    template: `<button>this is a 'bt' component button</button>`
+  };
+
+  var app = new Vue({
+    el:'#app',
+    data:{
+      a: 1
+    },
+    components:{
+      'btt': bt
+    },
+    methods: {
+      add: function(num, e){
+        console.log(e);
+
+        if(num !== ''){
+          return this.a+=num;
+        }
+        else{
+          return this.a++;
+        }
+      }
+    }
+  });
+
+
+</script>
+</body>
+</html>
