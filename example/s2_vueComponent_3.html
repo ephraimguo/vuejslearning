@@ -3,20 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Vue Components Parent & Child</title>
+  <title>Vue Component 3</title>
   <script type="text/javascript" src="../assets/js/vue.js"></script>
 </head>
 <body>
-<h1>Vue Components - Parents Component & Child Component</h1>
+<h1>Vue Component 3</h1>
+<h3>Write local component outside the Generator</h3>
 <hr>
 <div class="app">
-  {{message}}
+  <yanyu></yanyu>
 </div>
 <script type="text/javascript">
+
+  var cityComponent = {
+    template:`
+    <div style="color:#fff;background-color: black">Singapore of China</div>
+    `
+  };
+
+  var yanyuComponent = {
+    template:`
+    <div>
+      <p>Yanyu is from China</p>
+      <city></city>
+    </div>
+    `,
+    components:{
+      'city':cityComponent
+    }
+  };
+
+
   var app = new Vue({
     el: '.app',
-    data:{
-      message: 'hello world!'
+    components:{
+      "yanyu":yanyuComponent
     }
   });
 </script>

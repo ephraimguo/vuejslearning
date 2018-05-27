@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vue Props Data Option</title>
+  <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+<h1>Vue Props Data Option</h1>
+<hr>
+<div>
+  <header></header>
+</div>
+<script type="text/javascript">
+  var header_a = Vue.extend({
+    template: `
+    <p>{{message}} & a={{a}}</p>
+    `,
+    data: function(){
+      return {
+        message: 'hello, I am a header'
+      }
+    },
+    props: ['a']
+  });
+
+  new header_a({propsData:{a:1}}).$mount('header');//挂载在header标签上
+
+
+
+</script>
+</body>
+</html>

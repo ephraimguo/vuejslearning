@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vue Component 4</title>
+  <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+<h1>Vue Component 4</h1>
+<hr>
+<div class="app">
+  <component v-bind:is="who"></component>
+  <button type="button" @click="changeCom">Change Component</button>
+</div>
+<script type="text/javascript">
+  var cmptA = {
+    template: `<div style="background-color: cadetblue">I am Component AAAA</div>`
+  };
+  var cmptB = {
+    template: `<div style="background-color: #cccccc">I am Component BBBB</div>`
+  };
+  var cmptC = {
+    template: `<div style="background-color: #a23491">I am Component CCCC</div>`
+  };
+
+  var app = new Vue({
+    el: '.app',
+    data:{
+      who:'ccc'
+    },
+    components: {
+      'aaa':cmptA,
+      'bbb':cmptB,
+      'ccc':cmptC
+    },
+    methods: {
+      changeCom: function(){
+        if(this.who==='aaa'){
+          this.who='bbb';
+        }
+        else if(this.who==='bbb'){
+          this.who='ccc';
+        }
+        else{
+          this.who ='aaa';
+        }
+      }
+    }
+  });
+</script>
+</body>
+</html>

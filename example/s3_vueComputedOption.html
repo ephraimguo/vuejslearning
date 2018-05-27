@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vue Computed Option</title>
+  <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+<h1>Vue Computed Option</h1>
+<hr>
+<div id="app">
+  {{newPrice}}
+</div>
+
+<script type="text/javascript">
+  var nl = [
+    {title: '国家阿来得及发搜房的佛', date: new Date()},
+    {title: 'asdfsadfafadfasdfasdfad', date: new Date()},
+    {title: '是发包人那人家', date: new Date()},
+    {title: '闪电发货添加一条可以', date: new Date()},
+
+  ]
+  var app = new Vue({
+    el:'#app',
+    data:{
+      price: '1000',
+      newsList: nl
+    },
+    computed: {
+      newPrice: function(){
+        return this.price = '$' + this.price;
+      }
+    }
+  })
+
+
+</script>
+</body>
+</html>
