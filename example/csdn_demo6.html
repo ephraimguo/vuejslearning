@@ -12,11 +12,17 @@
     <div class="comp">
         <p v-html="htmlstr"></p>
         
-        <article v-for="item of list">
-            <h3>{{item.title}}</h3>
-            <div>
+        <article v-for="(item, index) of list" v-if="index!==1">
+            <h3>{{index+1}}-{{item.title}}</h3>
+            <div >
                 {{item.content}}
             </div>
+        </article>
+        <article v-else style="background-color: aquamarine">
+                <h3>{{index+1}}-{{item.title}}</h3>
+                <div >
+                    {{item.content}}
+                </div>
         </article>
     </div>
     

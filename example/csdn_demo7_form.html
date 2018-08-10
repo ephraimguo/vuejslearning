@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="comp">
+        {{name}}
+        <br>
+        <hr>
+        <!-- <input type="text" v-on:input="changename($event)" v-bind:value="name"> -->
+        <input type="text" v-model="name">
+
+    </div>
+    
+
+    <script>
+        const vm = new Vue({
+            el: '#comp',
+            data:{
+                name: "Ephraim"
+            },
+            methods: {
+                changename(){
+                    this.name = event.target.value;
+                }
+            }
+        })
+    </script>
+</body>
+</html>
