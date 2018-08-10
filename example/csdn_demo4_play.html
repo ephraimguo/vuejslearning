@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="play">
+        <select name="seletion" id="sel">
+            <option value="0"> String </option>
+            <option value="1"> Date </option>
+        </select>
+        <p id="date" class="active">{{ dates }}</p>
+        <p id="date1" class="">{{ dates|filter1 }}</p>
+    </div>
+
+    <script>
+        const vm = new Vue({
+            el:"#play",
+            data:{
+                dates: "2018-01-01"
+            },
+            filters:{
+                filter1(dt){
+                    return new Date(dt);
+                }
+            }
+        });
+        
+        const sel = document.querySelector("#sel");
+        const p = document.querySelectorAll("p");
+        sel.onchange = function(){
+            if(sel.value==0){
+                p[0].className = "active";
+                p[1].className = "";
+            }
+            else if(sel.value==1){
+                p[1].className = "active";
+                p[0].className = "";
+            }
+            else{
+                p[0].className = "";
+                p[1].className = "";
+            }
+        }
+        
+
+    </script>
+    <style>
+        p{
+            display: none;
+        }
+        .active{
+            display: block;
+        }
+    </style>
+</body>
+</html>

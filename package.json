@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/ephraimguo/vuejslearning/issues"
   },
-  "homepage": "https://github.com/ephraimguo/vuejslearning#readme"
+  "homepage": "https://github.com/ephraimguo/vuejslearning#readme",
+  "dependencies": {},
+  "devDependencies": {},
+  "keywords": []
 }

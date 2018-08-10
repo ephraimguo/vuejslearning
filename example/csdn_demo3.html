@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="demo-3">
+        <p>{{fname}}</p>
+        <p>{{lname}}</p>
+        <p>{{fullname()}}</p>
+        <div>
+            {{fnum}}
+            <button onclick="++demo3.fnum">+</button> <button onclick="--demo3.fnum">-</button>
+             + 
+            {{lnum}} 
+            <button onclick="++demo3.lnum">+</button> <button onclick="--demo3.lnum">-</button>
+             = {{result}}
+            <button onclick="++demo3.result">+</button> <button onclick="--demo3.result">-</button>
+             <br>
+             {{mnum}} <button onclick="++demo3.mnum">+</button> <button onclick="--demo3.mnum">-</button>
+        </div>
+    </div>
+
+    <script>
+
+        const demo3 = new Vue({
+            el: "#demo-3",
+            data:{
+                fname:"Ephraim",
+                lname:"Guo",
+                fnum: 12,
+                lnum: 13,
+                mnum: 0
+            },
+            
+            methods:{
+                fullname(){
+                    return this.fname +" . "+ this.lname;
+                }
+                // result(){
+                //     return this.fnum + this.lnum;
+                // }
+            },
+            // 设置动态可计算的属性
+            // 计算相关的，可以节省很多性能
+            computed:{
+                // result(){
+                //     console.log("this function is called");
+                //     return this.fnum + this.lnum;
+                // }
+                result:{
+                    get(){
+                        return this.fnum + this.lnum;
+                    },
+                    set(n){
+                        this.fnum = n/2;
+                        this.lnum = n/2;
+                    }
+                }
+            }
+        });
+       
+    </script>
+</body>
+</html>

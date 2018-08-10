@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="view2">
+
+    </div>
+
+    <div id="view">
+        name: {{name}} <br>
+        id: {{nric}}
+    </div>
+    <button id="button">change name</button>
+    
+    <script>
+        const vm = new Vue({
+            el:"#view",
+            data: {
+                name:"Yanyu",
+                nric: "s9081495h"
+            }
+        }); // 是一个vue model 对象
+
+        const obj = {
+            data:{
+                name: ""
+            }
+        };
+        Object.defineProperty(obj, "name", {
+            get(){
+                return this.data.name;
+            },
+            set(v){
+                this.data.name = v;
+                view2.innerHTML = obj.name;
+            }
+        });
+
+        console.log(view2);
+
+        view2.innerHTML = obj.name;
+
+        setTimeout(function(){
+            obj.name = "Hello Vue!";
+        },3000);
+
+
+        button.onclick = function(){
+            vm.name = vm.name=="Ephraim"?"Yanyu":"Ephraim";
+        }
+
+    </script>
+</body>
+</html>

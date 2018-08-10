@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+
+    <div id="demo2-play">
+        {{ first }}
+        <br>
+        {{ second }}
+        <br>
+        <button id="btn1">Add this {{ addend }}</button> 
+        <br>
+        <button id="btnPlus"> + </button> 
+        <br>
+        <button id="btnMinus"> - </button>
+
+    </div>
+
+    <script>
+        const d2play = new Vue({
+            el:"#demo2-play",
+            data:{
+                first:0,
+                second:0,
+                addend:1
+            },
+            methods:{
+                changeAddend(n){
+                    this.addend += n;
+                }
+            }
+        });
+
+        const btnAction = document.querySelector("#btn1");
+        const btnPlus = document.querySelector("#btnPlus");
+        const btnMinus = document.querySelector("#btnMinus");
+
+        btnPlus.onclick = function(){
+            d2play.changeAddend(1)
+        }
+        btnMinus.onclick = function(){
+            d2play.changeAddend(-1);
+        }
+        btnAction.onclick = function(){
+            d2play.first += d2play.addend;
+            d2play.second += d2play.addend;
+        }
+
+    </script>
+    
+</body>
+</html>

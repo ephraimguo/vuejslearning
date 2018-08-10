@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+
+    <div class="comp">
+        <p v-html="htmlstr"></p>
+        
+        <article v-for="item of list">
+            <h3>{{item.title}}</h3>
+            <div>
+                {{item.content}}
+            </div>
+        </article>
+    </div>
+    
+    <script>
+        const vm = new Vue({
+            el: ".comp",
+            data: {
+                htmlstr: `
+                <article>
+                <h3> Heading </h3>
+                <div>
+                    Hi there!    
+                </div>
+                </article>
+                `,
+                list:[
+                    {title: "11111", content: "content1"},
+                    {title: "22222", content: "content2"},
+                    {title: "33333", content: "content3"}
+                ]
+            }
+        });
+    </script>
+</body>
+</html>

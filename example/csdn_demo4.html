@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数据和数据显示应该分离</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="comp">
+        {{ a }}
+        <br>
+        {{ a | f1() | f2 }}
+    </div>
+
+    <script>
+        const vm = new Vue({
+            el:"#comp",
+            data:{
+                a: "ok a",
+                a2: "ok a2"
+            },
+            filters:{
+                f1(v, txt){
+                    return v+'-fun1' + (txt||"nothing here");
+                },
+                f2(v){
+                    return v+'-fun2';
+                }
+            },
+            methods:{
+                func1(v){
+                    return this.v + "-function1";
+                }
+            }
+        })
+       
+    </script>
+</body>
+</html>

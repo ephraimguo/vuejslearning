@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="vue-1">
+        {{ name }} 
+        <br>
+        double name: {{ doubleName() }}
+    </div>
+    <button id="change">change name</button>
+
+    <script>
+        const vm = new Vue({
+            el:"#vue-1",
+            data:{
+                name:"Vue-1-CSDN-demo2"
+            },
+            methods:{
+                change(name){
+                    this.name = name;
+                },
+                doubleName(){ // the method can be called in the html
+                    return this.name +"-"+ this.name;
+                }
+            }
+        });
+
+        const oBtn = document.querySelector("#change");
+        oBtn.onclick = function(){
+            let name = vm.name=="Vue-1-CSDN-demo2"?"Ephraim does this change":"Vue-1-CSDN-demo2"
+            vm.change(name);
+        }
+
+    </script>
+</body>
+</html>

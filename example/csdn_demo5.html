@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <style>
+        #red {
+            background-color: red;
+        }
+        #blue{
+            background-color: blue
+        }
+        .aa{
+            background-color: #999;
+        }
+        .bb{
+            border: 2px solid #333
+        }
+    </style>
+
+    <div class="demo5">
+        <h1 v-bind:id="idh1">
+            {{ idh1 }}
+        </h1>
+        <h4 :id="idh2">
+            {{ idh2 }}
+        </h4>
+        <h3 :class="classh3"> this is multiple class place</h3>
+    </div>
+
+    <script>
+
+        // const h1dom = document.getElementById("red");
+        // const h4dom = document.getElementById("blue");
+
+        // h1dom.id = "blue";
+        // 针对dom的操作会刷新整个页面
+
+        // console.log(h1dom === document.getElementById("red"));
+
+        const vm = new Vue({
+            el:".demo5",
+            data:{
+                idh1:"red",
+                idh2:"blue",
+                // classh3: ["aa", "bb"]
+                classh3: {
+                    aa: false,
+                    bb: true
+                }
+            }
+        })
+
+        const h1dom = document.getElementById("red");
+        vm.idh1 = "blue";
+        console.log(h1dom === document.getElementById("red"));
+
+    </script>
+</body>
+</html>
