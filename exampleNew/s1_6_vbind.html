@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-bind 标签属性绑定 binding tag attribute</title>
+    <script src="../assets/js/vue.js"></script>
+    <style>
+        .classA{
+            font-size: 30px;
+        }
+        .classB{
+            background-color: #888888;
+        }
+    </style>
+</head>
+<body>
+    <div id="view">
+        <p>
+            <img v-bind:src="imgSrc" width="450px" alt="">
+        </p>
+        </p>
+        <p :class="className">1. testing binding class Name</p>
+        <p :class="[clsA, clsB]">2. testing binding class as array</p>
+        <hr>
+        <p :class="{classB: yes}">3. testing binding class by boolean</p>
+        <div>
+            <input type="checkbox" id="yes" v-model="yes">
+            <label for="yes">change yes == {{yes}}</label>
+        </div>
+        <p v-bind:style="styleObj">4. testing binding sytle by obj</p>
+        
+    </div>
+
+    <script>
+        var vue = new Vue({
+            el:"#view",
+            data:{
+                imgSrc:"https://cn.vuejs.org/images/logo.png",
+                className: "classA classB",
+                clsA:"classA",
+                clsB:"classB",
+                yes: true,
+                styleObj:{
+                    color: "#fff",
+                    fontSize: "24px",
+                    backgroundColor:"#ae32eb"
+                }
+            }
+        });
+       
+    </script>
+</body>
+</html>

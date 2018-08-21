@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>v-if & v-else & v-show</h1>
+    <div id="view">
+        <!-- 有了v-if就要有v-else 他们是一起出现的 -->
+        <div v-show="!isLogin"> Hi I am v-show</div>
+        <div v-if="isLogin"> Hi I am v-if</div>
+
+    </div>
+
+    <script>
+
+        var app = new Vue({
+            el:"#view",
+            data:{
+                isLogin: true
+            }
+        })
+        
+    </script>
+</body>
+</html>
+
+<!-- v-if 在false的时候 是不会加载-->
+<!-- v-show 在false的时候 只将css display：none -->

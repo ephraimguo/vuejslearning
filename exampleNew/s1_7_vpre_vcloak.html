@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-bind 标签属性绑定 binding tag attribute</title>
+    <script src="../assets/js/vue.js"></script>
+    
+</head>
+<body>
+    <div id="view">
+        <p>v-pre</p>
+        <div v-pre>{{message}}</div>
+        <div v-once>{{message}}</div>
+
+        <hr>
+        <p>v-cloak, display after rendering</p>
+        <div v-cloak>v-cloak testing dom</div>
+
+        <hr>
+        <div>{{message}}</div>
+        <input type="text" v-model="message">
+    </div>
+
+    <script>
+        var vue = new Vue({
+            el:"#view",
+            data:{
+                message:"hello world"
+            }
+        });
+       
+    </script>
+</body>
+</html>

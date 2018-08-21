@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>V-FOR</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <div id="view">
+        <h1>sorted numbers</h1>
+        <ul>
+            <li v-for="item in sortedItems">{{item}}</li>
+        </ul>
+        <hr>
+        <h1>iterative students info</h1>
+        <ul>
+            <li v-for="(stu,index) in students">{{stu.name}}-{{index+1}}: {{stu.age}}</li>
+        </ul>
+    </div>
+
+    <script>
+        var app = new Vue({
+            el: "#view",
+            data:{
+                items:[1,23,75,345,4453,23423432,5676786757856],
+                students:[
+                    {name:"Roar",age:28},
+                    {name:"Ephraim",age:23},
+                    {name:"Daphne",age:25},
+                    {name:"Naomi",age:24}
+                ]
+            },
+            computed:{
+                sortedItems: function(){
+                    return this.items.sort(sortNumber);
+                }
+            }
+        });
+
+        function sortNumber(a, b){
+            return a-b;
+        }
+    </script>
+</body>
+</html>
