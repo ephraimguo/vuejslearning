@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-hooks</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+
+<body>
+   <h1>V Hooks</h1>
+   <div id="view">
+       {{message}}
+   </div>
+
+   <template id="temptag">
+       <h2>I am template TAG</h2>
+   </template>
+
+  
+   <script typpe="x-template" id="tempscript">
+       <h2>This is script template</h2>
+   </script>
+
+
+
+    <script>
+        var vue = new Vue({
+            el:"#view",
+            data:{
+                message: "I am template"
+            },
+            template: "#tempscript"
+            // template:"#temptag",
+            // template:`
+            // <h1>Here is the template title</h1>
+            // `
+        });
+
+    </script>
+</body>
+</html>

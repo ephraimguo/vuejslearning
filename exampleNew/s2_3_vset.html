@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-set</title>
+    <script src="../assets/js/vue.js"></script>
+    
+</head>
+<body>
+   <h1>V SET</h1>
+   <div>
+       <h2>引用构造器外部数据</h2>
+       <div id="app">
+           outer data count - {{count}}
+           <p><button @click="add">ADD</button></p>
+           <br>
+           outer data goods - {{goods}}
+
+           <ul>
+               <li v-for="(item,index) in arr">{{item}} - {{index}}</li>
+           </ul>
+       </div>
+       <p>
+           <button onclick="add2()">ADD2</button>
+       </p>
+   </div>
+
+
+    <script>
+        function add2 (){
+            // Vue.set(outerData, 'count', -5);
+            //outerData.count ++;
+            // app.arr[1] = "newString"
+            Vue.set(app.arr, 1, "setNewString");
+        }
+
+        var outerData = {
+            count: 1,
+            goods: "cars",
+            arr: ["aa", "bb", "cc", "dd"]
+        }
+        var app = new Vue({
+            el: "#app",
+            data: outerData,
+            methods: {
+                add:function(){
+                    outerData.count++;
+                }
+            }
+        });
+
+    </script>
+</body>
+</html>
