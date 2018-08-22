@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Component</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+
+<body>
+   <h1>Component Tag</h1>
+   <hr>
+
+   <div id="view">
+       <compa></compa>
+       <compb></compb>
+       <compc></compc>
+
+       <p><button @click="changeComp">changeComp</button></p>
+       <hr>
+
+       <component :is="compId"></component>
+       <component :is="compId2"></component>
+       <component :is="compId3"></component>
+   </div>
+
+    <script>
+        var compA = {
+            template:`<div style="background-color:#333;color:#fff">this is compA</div>`
+        }
+        
+        var compB = {
+            template:`<div style="background-color:#999;color:#fff">this is compB</div>`
+        }
+
+        var compC = {
+            template:`<div style="background-color:#666;color:#fff">this is compC</div>`
+        }
+
+        var vue = new Vue({
+            el:"#view",
+            data:{
+                compId: "compa",
+                compId2: "compb",
+                compId3: "compc"
+            },
+            components:{
+                "compa":compA,
+                "compb":compB,
+                "compc":compC
+            },
+            methods:{
+                changeComp:function(){
+                    if(this.compId == "compa"){
+                        this.compId = "compb";
+                    }else if(this.compId == "compb"){
+                        this.compId = "compc";
+                    }else{
+                        this.compId = 'compa';
+                    }
+
+                    if(this.compId2 == "compa"){
+                        this.compId2 = "compb";
+                    }else if(this.compId2 == "compb"){
+                        this.compId2 = "compc";
+                    }else{
+                        this.compId2 = 'compa';
+                    }
+
+                    if(this.compId3 == "compa"){
+                        this.compId3 = "compb";
+                    }else if(this.compId3 == "compb"){
+                        this.compId3 = "compc";
+                    }else{
+                        this.compId3 = 'compa';
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

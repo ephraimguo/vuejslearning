@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Component</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+
+<body>
+   <h1>propsData Option</h1>
+   <p>主要用于扩展</p>
+   <hr>
+
+   <div id="view">
+
+    <roar></roar>
+       
+   </div>
+
+    <script>
+        var roar_a = Vue.extend({
+            template:`<p>{{message}} - {{a}}</p>`,
+            data:function(){
+                return {
+                    message: "Hi, I am roar-a"
+                }
+            },
+            props:['a']
+        });
+
+        new roar_a({propsData:{a:13}}).$mount("roar");
+        
+    </script>
+</body>
+</html>

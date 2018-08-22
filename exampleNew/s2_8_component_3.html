@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Component</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+
+<body>
+   <h1>Component</h1>
+   <hr>
+
+   <div id="view">
+       <ephraim></ephraim>
+   </div>
+
+    <script>
+        var city = {
+                    template:`<div style="border:3px solid yellow"> Guangzhou of China </div>`
+                }
+
+        var eph = {
+            template:`
+            <div>
+                <p style="border:1px solid red"> Ephraim from China 
+                <cityx></cityx>
+                </p>
+            </div>`,//在外部声明一下，然后进入到info里面注册
+            components:{
+                "cityx":city
+            }
+            
+        }
+
+       
+
+        let info = {
+            el: "#view",
+            components:{
+                "ephraim":eph // 注册在外部生命的组件
+            }
+        }
+
+        var vue = new Vue(info);
+
+    </script>
+</body>
+</html>

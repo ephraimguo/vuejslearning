@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Component</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+
+<body>
+   <h1>Component props</h1>
+   <hr>
+   <div id="view">
+       <guo here="Singapore"></guo>
+       <guo :here="message"></guo>
+   </div>
+
+   <div id="weiv">
+        
+   </div>
+
+    <script>
+
+        let info = {
+            el: "#view",
+            data:{
+                message:"LOL"
+            },
+            components:{
+                "guo":{
+                    template:
+                    `
+                    <div>
+                    <h3 style="color:green">I am a local component</h3>
+                    <p>Ephraim is from {{ here }}</p>
+                    </div>
+                    `
+                    ,
+                    props:['here'] //  注册选项
+                }
+            }
+        }
+
+        var vue = new Vue(info);
+
+    </script>
+</body>
+</html>

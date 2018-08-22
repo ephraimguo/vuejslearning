@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Component</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+
+<body>
+   <h1>Global Component</h1>
+   <hr>
+   <div id="view">
+       <eph></eph>
+       <guo></guo>
+   </div>
+
+   <div id="weiv">
+        
+   </div>
+
+    <script>
+        Vue.component('eph', {
+            template:`
+                <h3 style="color:red">I am a global component</h3>
+            `
+        }); // 只能定义一个
+
+        let info = {
+            el: "#view",
+            components:{
+                "guo":{
+                    template:`
+                        <h3 style="color:green">I am a local component</h3>
+                    `
+                }
+            }
+        }
+
+
+        var vue = new Vue(info);
+
+        
+
+    </script>
+</body>
+</html>
